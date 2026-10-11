@@ -13,7 +13,7 @@ This repository only hosts the **installer and automatic updates**. The source c
 - **Bibles:** type a reference or pick book, chapter and verse; save passages for later and share them on WhatsApp.
 - **Media:** images, videos, music and YouTube links, organised in folders.
 - **Alerts** that scroll across the screen over everything, plus keyboard shortcuts (press **?** in the app).
-- **Imports from OpenLP:** songs, Bibles, themes and media.
+- **Bring your library with you:** import songs (OpenLyrics), Bibles (OpenSong, Zefania, OSIS, USFX), themes and media exported from other programs.
 - **Updates itself:** new versions download in the background and install when you restart.
 
 ## Install
@@ -27,7 +27,7 @@ This repository only hosts the **installer and automatic updates**. The source c
 ## First run
 
 1. Plug in the projector. Stagelight puts its output on it full screen by itself (or choose the screen from **Projector** at the top).
-2. Press **Import** and choose a folder of songs, Bibles, themes or media, for example everything you exported from OpenLP.
+2. Press **Import** and choose a folder of songs, Bibles, themes or media, for example everything you exported from your previous program.
 3. Turn on Windows **Mobile hotspot**, connect your phone to it, press **Phone remote** and scan the code.
 4. When Windows Firewall asks about Stagelight, click **Allow**, including on public networks, or your phone won't be able to connect.
 
