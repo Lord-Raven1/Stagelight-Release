@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stagelight: worship slides you run from your phone</title>
+  <meta name="description" content="Free worship presentation software for Windows. Songs, scripture, slides, video and music on the projector, controlled from your phone.">
+  <meta property="og:title" content="Stagelight">
+  <meta property="og:description" content="Free worship presentation software for Windows, run from your phone.">
+  <meta property="og:image" content="projector.png">
+  <link rel="icon" href="icon-180.png">
+  <style>
+    :root {
+      --bg: #0f1116;
+      --panel: #171a21;
+      --panel-2: #1f232c;
+      --line: #2b303b;
+      --text: #e9ebf0;
+      --muted: #9aa1b0;
+      --accent: #4f8cff;
+      --warm: #ffd36b;
+      --love: #b23a62;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 17px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    }
+    a { color: #9fc0ff; }
+    img { max-width: 100%; height: auto; display: block; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* Top bar */
+    .top { position: sticky; top: 0; z-index: 10; background: rgba(15, 17, 22, 0.85); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    .top .wrap { display: flex; align-items: center; gap: 16px; height: 60px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
+    .logo img { width: 30px; height: 30px; border-radius: 8px; }
+    .top nav { margin-left: auto; display: flex; gap: 18px; font-size: 15px; }
+    .top nav a { color: var(--muted); text-decoration: none; }
+    .top nav a:hover { color: var(--text); }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 10px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); color: var(--text); background: var(--panel-2); }
+    .btn:hover { border-color: #4a5160; }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn.primary:hover { background: #3f7cf0; }
+    .btn.love { background: var(--love); border-color: var(--love); color: #fff; }
+    .btn small { font-weight: 400; opacity: 0.85; }
+
+    /* Hero */
+    .hero { padding: 72px 0 40px; background: radial-gradient(900px 420px at 50% -60px, rgba(255, 211, 107, 0.14), transparent 70%); }
+    .hero .wrap { display: grid; grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .hero h1 { margin: 0 auto; max-width: 820px; font-size: clamp(34px, 5.2vw, 58px); line-height: 1.08; letter-spacing: -0.5px; }
+    .hero h1 em { font-style: normal; color: var(--warm); }
+    .hero p.lead { margin: 18px auto 0; max-width: 660px; color: var(--muted); font-size: 19px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 28px; }
+    .fine { margin-top: 12px; font-size: 14px; color: var(--muted); }
+
+    /* Screens: laptop with the phone in front */
+    .screens { position: relative; max-width: 980px; margin: 0 auto; padding-bottom: 40px; }
+    .laptop { border-radius: 14px; border: 1px solid var(--line); overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55); background: #000; }
+    .laptop .bar { height: 26px; background: #20242c; display: flex; align-items: center; gap: 6px; padding: 0 10px; }
+    .laptop .bar i { width: 10px; height: 10px; border-radius: 50%; background: #3a404c; }
+    .phone { position: absolute; right: -10px; bottom: 0; width: 22%; min-width: 150px; border-radius: 26px; border: 6px solid #2a2f39; overflow: hidden; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6); background: #000; }
+    .caption { margin-top: 14px; color: var(--muted); font-size: 14px; text-align: center; }
+
+    /* Sections */
+    section { padding: 64px 0; }
+    section h2 { font-size: clamp(26px, 3.4vw, 36px); margin: 0 0 10px; letter-spacing: -0.3px; }
+    section .sub { color: var(--muted); margin: 0 0 32px; max-width: 680px; }
+    .alt { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: var(--panel-2); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+    .alt .card { background: var(--bg); }
+    .card .ico { font-size: 26px; line-height: 1; }
+    .card h3 { margin: 12px 0 6px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+    .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+    .split img { border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45); }
+    ul.ticks { list-style: none; padding: 0; margin: 0; }
+    ul.ticks li { position: relative; padding-left: 28px; margin-bottom: 10px; }
+    ul.ticks li::before { content: "✓"; position: absolute; left: 0; color: var(--warm); font-weight: 700; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: step; }
+    .step { counter-increment: step; }
+    .step::before { content: counter(step); display: inline-flex; width: 34px; height: 34px; border-radius: 50%; align-items: center; justify-content: center; background: var(--accent); color: #fff; font-weight: 700; margin-bottom: 10px; }
+
+    .faq details { background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; }
+    .alt .faq details { background: var(--bg); }
+    .faq summary { cursor: pointer; font-weight: 600; }
+    .faq p { color: var(--muted); margin: 10px 0 0; }
+
+    .why { max-width: 760px; }
+    .why p { color: #c9cdd6; font-size: 18px; margin: 0 0 16px; }
+    .why .signature { color: var(--warm); font-weight: 600; font-style: italic; }
+    .faq details p + p { margin-top: 8px; }
+    .support { text-align: center; }
+    .support .cta { margin-top: 20px; }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
+    footer .credit { margin-right: auto; }
+    footer a { color: var(--muted); }
+
+    @media (max-width: 860px) {
+      .features, .steps { grid-template-columns: 1fr 1fr; }
+      .split { grid-template-columns: 1fr; }
+      .top nav { display: none; }
+    }
+    @media (max-width: 560px) {
+      body { font-size: 16px; }
+      .features, .steps { grid-template-columns: 1fr; }
+      .hero { padding-top: 44px; }
+      .phone { width: 34%; right: -4px; border-width: 4px; border-radius: 18px; min-width: 0; }
+      .btn { width: 100%; justify-content: center; }
+      .top .btn { width: auto; padding: 8px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="#"><img src="icon-180.png" alt=""> Stagelight</a>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#why">Why I built it</a>
+        <a href="#faq">Questions</a>
+        <a href="#support">Support</a>
+      </nav>
+      <a class="btn primary" href="https://github.com/Lord-Raven1/Stagelight-Release/releases/latest">Download</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="wrap">
+        <div>
+          <h1>Worship slides you run <em>from your phone</em></h1>
+          <p class="lead">Stagelight puts songs, scripture, slides, videos and music on the projector, and lets you run the whole service from a phone. The laptop stays plugged in; you're free to move.</p>
+          <div class="cta">
+            <a class="btn primary" href="https://github.com/Lord-Raven1/Stagelight-Release/releases/latest">⬇ Download for Windows <small>free</small></a>
+            <a class="btn" href="#how">See how it works</a>
+          </div>
+          <p class="fine">Windows 10 or 11 · No account · Your songs and Bibles stay on your laptop</p>
+        </div>
+        <div class="screens">
+          <div class="laptop">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <img src="operator.png" alt="The Stagelight operator screen with the song library, service order, preview and live projector mirror" width="1600" height="900">
+          </div>
+          <div class="phone"><img src="phone.png" alt="The Stagelight phone remote showing the live song" width="390" height="844"></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="features">
+      <div class="wrap">
+        <h2>Everything a Sunday needs</h2>
+        <p class="sub">Built by someone who runs the slides at church, for the moments that actually happen in a service.</p>
+        <div class="features">
+          <div class="card"><div class="ico">📱</div><h3>Phone remote</h3><p>Scan a QR code and you're in. Next and previous, black screen, the service order and the whole library, with no app to install.</p></div>
+          <div class="card"><div class="ico">🎬</div><h3>Lyrics over video</h3><p>Keep a video or image playing and put songs, scripture and announcements on top of it.</p></div>
+          <div class="card"><div class="ico">📖</div><h3>Scripture, fast</h3><p>Type “jn 3 16” or pick book, chapter and verse. Save Sunday's readings ahead of time and share them on WhatsApp.</p></div>
+          <div class="card"><div class="ico">🎨</div><h3>Themes without the fiddling</h3><p>Drag the text where you want it. It snaps to the centre and safe margins and shrinks to fit. No pixel values.</p></div>
+          <div class="card"><div class="ico">✨</div><h3>Smooth transitions</h3><p>Fade, slide or zoom between slides. Backgrounds stay steady while only the words change.</p></div>
+          <div class="card"><div class="ico">🎵</div><h3>Media and music</h3><p>Images, videos, MP3s and YouTube links, in folders. Music keeps playing under whatever is on screen.</p></div>
+          <div class="card"><div class="ico">📢</div><h3>Alerts</h3><p>Scroll a message across the top of the screen (“Would the owner of…”) without touching what's showing.</p></div>
+          <div class="card"><div class="ico">⌨️</div><h3>Shortcuts and clickers</h3><p>B for black, D for the welcome screen, arrows or a presentation clicker for slides. Press ? to see them all.</p></div>
+          <div class="card"><div class="ico">🔄</div><h3>Keeps itself up to date</h3><p>Updates download quietly and install when you next restart, never in the middle of a service.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="wrap split">
+        <div>
+          <h2>Bring your library with you</h2>
+          <p class="sub">Already have songs and Bibles in another program? Export them, press <b>Import</b>, choose the folder, and Stagelight works out what each file is.</p>
+          <ul class="ticks">
+            <li>Songs in the open OpenLyrics format, with verse labels and orders kept</li>
+            <li>Bibles in OpenSong (<code>.xmm</code>), Zefania, OSIS and USFX formats</li>
+            <li>Themes, images, videos and music</li>
+            <li>Importing again is safe: nothing is duplicated or lost</li>
+          </ul>
+        </div>
+        <img src="projector.png" alt="A hymn on the projector in Stagelight's Night sky theme" width="1600" height="900" loading="lazy">
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="wrap why">
+        <h2>Why I built this</h2>
+        <p>I run the slides at my church. Every Sunday it was the same small battles: the laptop has to sit by the projector, so I was stuck next to it. The phone remote I tried never wanted to connect, and our venue has no Wi-Fi anyway. Lining up words on a slide meant typing pixel values until they looked right. I couldn't put lyrics over a video, and slides just snapped from one to the next.</p>
+        <p>So I made the tool I wanted: the laptop drives the projector, and I run everything from my phone over its own hotspot. Words go where you drag them, songs can sit on top of a video, and slides fade or glide instead of jumping. I also added the little things that make a Sunday smoother, like saving the day's readings ahead of time and sending them to the group on WhatsApp.</p>
+        <p>It's free, because I'd like other churches to have an easier Sunday too.</p>
+        <p class="signature">Lord-Raven1</p>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <h2>How it works</h2>
+        <p class="sub">No Wi-Fi at your venue? No problem: the laptop makes its own.</p>
+        <div class="steps">
+          <div class="card step"><h3>Install it on the laptop</h3><p>Download and run the installer. Plug in the projector and Stagelight puts the output on it full screen by itself.</p></div>
+          <div class="card step"><h3>Turn on the hotspot</h3><p>Switch on Windows Mobile hotspot and connect your phone to it. No internet needed.</p></div>
+          <div class="card step"><h3>Scan and go</h3><p>Press <b>Phone remote</b>, scan the code, and run the service from wherever you're standing.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="alt">
+      <div class="wrap faq">
+        <h2>Questions</h2>
+        <p class="sub">The short answers.</p>
+        <details><summary>Is it really free?</summary><p>Yes. No trial, no account, no subscription. If it helps your church you can leave a tip, but you never have to.</p></details>
+        <details><summary>Does it need the internet?</summary><p>No. The phone talks to the laptop directly over its hotspot or your Wi-Fi. The internet is only used to check for updates and to play YouTube links if you add them.</p></details>
+        <details><summary>Where are my songs and Bibles kept?</summary><p>Only on your laptop, in <code>%AppData%\Stagelight</code>. Nothing is uploaded anywhere, and uninstalling leaves them in place.</p></details>
+        <details><summary>Windows says it “protected your PC”. Is that safe?</summary>
+          <p>This blue message comes from Windows SmartScreen. It appears for programs that aren't <b>code-signed</b>, not because anything harmful was found.</p>
+          <p><b>What code signing is:</b> developers can buy a certificate that stamps their name on the installer, so Windows can show who made it. These certificates cost hundreds of dollars a year and are aimed at companies, which is a lot for a free app made in spare time, so Stagelight isn't signed yet. Windows then treats it like any new download it hasn't seen much of, and asks you to confirm.</p>
+          <p><b>To install:</b> click <b>More info</b>, check the app name says Stagelight, then click <b>Run anyway</b>. You only need to do this once; updates install by themselves after that.</p>
+          <p><b>To stay safe:</b> only download Stagelight from this site or its <a href="https://github.com/Lord-Raven1/Stagelight-Release/releases">official GitHub releases page</a>. A copy from anywhere else can't be vouched for.</p>
+        </details>
+        <details><summary>Does it work on a Mac?</summary><p>Not yet. Stagelight runs on Windows 10 and 11. The phone remote works on any phone with a browser.</p></details>
+        <details><summary>Something isn't working, or I have an idea</summary><p>In Stagelight, click the Stagelight name at the top left and choose <b>Send feedback</b>, or <a href="https://github.com/Lord-Raven1/Stagelight-Release/issues/new">post it on GitHub</a>.</p></details>
+      </div>
+    </section>
+
+    <section id="support" class="support">
+      <div class="wrap">
+        <h2>Support Stagelight</h2>
+        <p class="sub" style="margin: 0 auto;">Stagelight is free and made in spare time. If it makes Sundays easier for your church, a tip helps keep it going.</p>
+        <div class="cta">
+          <a class="btn love" href="https://ko-fi.com/lordraven">♥ Leave a tip on Ko-fi</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="credit">Made by <a href="https://github.com/Lord-Raven1/Stagelight-Release">Lord-Raven1</a></span>
+      <a href="https://github.com/Lord-Raven1/Stagelight-Release/releases/latest">Download</a>
+      <a href="https://github.com/Lord-Raven1/Stagelight-Release/issues/new">Feedback</a>
+      <a href="https://ko-fi.com/lordraven">Ko-fi</a>
+    </div>
+  </footer>
+</body>
+</html>
