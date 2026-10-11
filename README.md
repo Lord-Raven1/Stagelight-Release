@@ -49,6 +49,10 @@ Stagelight checks this repository for a new version shortly after it starts and 
 
 [Open an issue](https://github.com/Lord-Raven1/Stagelight-Release/issues/new) here. You'll need a GitHub account, and issues are **public**, so please don't include anything private.
 
+## Support
+
+Stagelight is free. If it helps your church, you can leave a tip on **[Ko-fi](https://ko-fi.com/lordraven)** (card or PayPal), or use **♥ Support Stagelight** in the app's About window. Thank you!
+
 ## Downloads in each release
 
 | File | What it is |
