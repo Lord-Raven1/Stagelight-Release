@@ -2,6 +2,8 @@
 
 **Stagelight** is a free Windows app for showing worship songs, scripture, slides, images, videos and music on a projector, and you run it from your phone. The laptop stays connected to the projector; you control the service from a phone on the same Wi-Fi or the laptop's own hotspot. No app to install on the phone.
 
+🌐 **Website:** [lord-raven1.github.io/Stagelight-Release](https://lord-raven1.github.io/Stagelight-Release/)
+
 This repository only hosts the **installer and automatic updates**. The source code is kept in a separate, private repository.
 
 ## Features
