@@ -1,0 +1,25 @@
+Stagelight licence
+
+Copyright © 2026 Lord-Raven1. All rights reserved.
+
+Stagelight is free to use. It is not open source: Lord-Raven1 owns Stagelight, including its
+code, design, name and icon.
+
+You may
+  - download, install and use Stagelight free of charge, on as many computers as you like,
+    for yourself, your church or your organisation;
+  - tell others about it and share the official website, https://stagelight-website.onrender.com, or download page, https://github.com/Lord-Raven1/Stagelight-Release/releases/latest, so everyone gets a genuine, up-to-date copy.
+
+You may not
+  - sell, rent or license Stagelight, or charge anyone for it or for access to it;
+  - modify, decompile, reverse engineer or disassemble it, except where the law allows
+    this regardless of this licence;
+  - share modified copies, or package it with other software;
+  - remove or change its copyright notices or credits, or present it as your own work.
+
+Stagelight is provided "as is", without warranty of any kind. The terms of use and privacy
+statement (https://stagelight-website.onrender.com/terms.html) also apply, including the
+limitation of liability.
+
+Stagelight is built with open-source components, each under its own licence, which this
+licence does not change: Electron and Chromium (see LICENSE.electron.txt and LICENSES.chromium.html in the app folder), ws, sql.js, adm-zip, qrcode and electron-updater. Their licence files are included with the app.

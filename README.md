@@ -69,4 +69,4 @@ Stagelight is free. If it helps your church, you can leave a tip on **[Ko-fi](ht
 
 ---
 
-Made by **Lord-Raven1**.
+© 2026 **Lord-Raven1**. All rights reserved. Stagelight is free to use but not open source; see the [licence](LICENSE).
